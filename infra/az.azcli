@@ -1,0 +1,9 @@
+az login --tenant bf44171c-49ef-4d4a-8b57-b8eee9cbadb5 --service-principal -u d0d8a020-d24c-47bf-b8f9-56ae7d951455 -p 'LBi8Q~lv1dtMJE82-FazOiFEiyzsyYsouHFfWbhy'
+az account set -s 89badc27-6f4a-4bf7-a94d-2a2e36d47f07
+
+
+**** PROD ****
+$rg = 'rg-i2oac-prod-westus-001'
+az deployment sub create -l northcentralus -f main.bicep  -p name=i2oic -p location=northcentralus
+az deployment group create -g $rg -f main.bicep -p resourceGroup=$rg -n i2oac
+
